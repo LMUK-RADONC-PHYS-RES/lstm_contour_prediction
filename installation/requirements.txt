@@ -1,0 +1,8 @@
+ipywidgets==7.6.5
+moviepy==1.0.3
+openpyxl==3.0.10
+scikit-posthocs==0.6.7
+SimpleITK==1.2.4
+torchio == 0.18.73
+easyocr == 1.4.2
+
