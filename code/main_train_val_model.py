@@ -123,7 +123,7 @@ if net == 'LSTM_SI_AP':
                                 hidden_features=config.hidden_features, 
                                 output_features=config.output_features,
                                 num_layers=config.num_layers, 
-                                seq_len_in=wdw_size_i, seq_len_out=wdw_size_o, 
+                                seq_len_out=wdw_size_o, 
                                 device=device, dropout=config.dropout, bi=config.bi)
     # set string for results folder
     net_params = f'net={net}-hidden_size={config.hidden_features}-num_layers={config.num_layers}' + \

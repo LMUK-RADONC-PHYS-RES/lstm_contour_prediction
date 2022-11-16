@@ -13,20 +13,18 @@ class CentroidPredictionLSTM(nn.Module):
         output_features (int): number of output features at each time step
         num_layers (int): number of LSTM hidden layers
         batch_size (int): number of data patterns to be fed to network simultaneously
-        seq_len_in (int): length of input window
         seq_len_out (int): length of predicted window
         device (torch.device): torch cuda device
         dropout (float, optional): probability of dropout [0,1] in dropout layer  
         bi (bool, optional): if True, becomes a bidirectional LSTM
     """
     def __init__(self, input_features, hidden_features, output_features,
-                 num_layers, seq_len_in, seq_len_out, 
+                 num_layers, seq_len_out, 
                  device, dropout=0, bi=False):
         super(CentroidPredictionLSTM, self).__init__()
         
         self.hidden_features = hidden_features
         self.num_layers = num_layers
-        self.seq_len_in = seq_len_in
         self.seq_len_out = seq_len_out
         self.output_features = output_features
         self.bi = bi

@@ -443,10 +443,10 @@ def train_val_model_online(model_initial, data_loader,
             hd_metric1_95_val(y_pred=val_segmentations[:,1,...], y=val_outputs[:,1,...])
             hd_metric0_50_val(y_pred=val_segmentations[:,0,...], y=val_outputs[:,0,...])
             hd_metric1_50_val(y_pred=val_segmentations[:,1,...], y=val_outputs[:,1,...])
-            rmse_metric0_SI_val(centroids_segmentations0[None,0,None] , centroids_output0[None,0,None])
-            rmse_metric1_SI_val(centroids_segmentations1[None,0,None], centroids_output1[None,0,None])
-            rmse_metric0_AP_val(centroids_segmentations0[None,1,None], centroids_output0[None,1,None])
-            rmse_metric1_AP_val(centroids_segmentations1[None,1,None], centroids_output1[None,1,None])
+            rmse_metric0_SI_val(centroids_segmentations0[:,0,None] , centroids_output0[:,0,None])
+            rmse_metric1_SI_val(centroids_segmentations1[:,0,None], centroids_output1[:,0,None])
+            rmse_metric0_AP_val(centroids_segmentations0[:,1,None], centroids_output0[:,1,None])
+            rmse_metric1_AP_val(centroids_segmentations1[:,1,None], centroids_output1[:,1,None])
 
 
             # training (happens 'after' validation for iterative model as
@@ -630,10 +630,10 @@ def evaluate_no_predictor(data_loader, wdw_size_i, wdw_size_o,
         hd_metric1_95_val(y_pred=val_segmentations[:,1,...], y=val_outputs[:,1,...])
         hd_metric0_50_val(y_pred=val_segmentations[:,0,...], y=val_outputs[:,0,...])
         hd_metric1_50_val(y_pred=val_segmentations[:,1,...], y=val_outputs[:,1,...])
-        rmse_metric0_SI_val(centroids_segmentations0[None,0,None] , centroids_output0[None,0,None])
-        rmse_metric1_SI_val(centroids_segmentations1[None,0,None], centroids_output1[None,0,None])
-        rmse_metric0_AP_val(centroids_segmentations0[None,1,None], centroids_output0[None,1,None])
-        rmse_metric1_AP_val(centroids_segmentations1[None,1,None], centroids_output1[None,1,None])
+        rmse_metric0_SI_val(centroids_segmentations0[:,0,None] , centroids_output0[:,0,None])
+        rmse_metric1_SI_val(centroids_segmentations1[:,0,None], centroids_output1[:,0,None])
+        rmse_metric0_AP_val(centroids_segmentations0[:,1,None], centroids_output0[:,1,None])
+        rmse_metric1_AP_val(centroids_segmentations1[:,1,None], centroids_output1[:,1,None])
 
         # aggregate the final metric result using the specified reduction 
         # and append metric value for current video      

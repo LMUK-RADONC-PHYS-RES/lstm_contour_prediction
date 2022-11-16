@@ -102,7 +102,6 @@ if net == 'LSTM_SI_AP':
                                                     hidden_features=config.hidden_features, 
                                                     output_features=config.output_features,
                                                     num_layers=config.num_layers, 
-                                                    seq_len_in=wdw_size_i, 
                                                     seq_len_out=wdw_size_o,
                                                     dropout=0, bi=config.bi,
                                                     device=device)

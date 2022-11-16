@@ -829,8 +829,8 @@ def get_centroids_segmentations(outputs, predictions, to_tensor=True):
     """Get center of mass for output segmentations and predicted segmentations for 250 ms and 500 ms forecast.
 
     Args:
-        outputs (array or tensor): ground truth segmentations with shape (1, 2, 1, ...)
-        predictions (array or tensor): predicted segmentations with shape (1, 2, 1, ...)
+        outputs (array or tensor): ground truth segmentations with shape (b, 2, 1, ...)
+        predictions (array or tensor): predicted segmentations with shape (b, 2, 1, ...)
 
     Returns:
         tuple with floats: centroids positions in SI and AP.
@@ -844,10 +844,15 @@ def get_centroids_segmentations(outputs, predictions, to_tensor=True):
     else:
         pass  
     
-    centroids_output0 = scipy.ndimage.measurements.center_of_mass(outputs[0,0,0,...])
-    centroids_predictions0 = scipy.ndimage.measurements.center_of_mass(predictions[0,0,0,...])
-    centroids_output1 = scipy.ndimage.measurements.center_of_mass(outputs[0,1,0,...])
-    centroids_predictions1 = scipy.ndimage.measurements.center_of_mass(predictions[0,1,0,...])
+    centroids_output0 = []
+    centroids_predictions0 = []
+    centroids_output1 = []
+    centroids_predictions1 = []
+    for el in range(outputs.shape[0]):
+        centroids_output0.append(scipy.ndimage.measurements.center_of_mass(outputs[el,0,0,...]))
+        centroids_predictions0.append(scipy.ndimage.measurements.center_of_mass(predictions[el,0,0,...]))
+        centroids_output1.append(scipy.ndimage.measurements.center_of_mass(outputs[el,1,0,...]))
+        centroids_predictions1.append(scipy.ndimage.measurements.center_of_mass(predictions[el,1,0,...]))
     
     if to_tensor:
         centroids_output0, centroids_predictions0 = torch.tensor(centroids_output0, dtype=torch.float32), torch.tensor(centroids_predictions0, dtype=torch.float32)
