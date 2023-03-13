@@ -11,7 +11,7 @@ Evaluated with Python version 3.8.13 and PyTorch version 1.12.0
 ## Installation
 * Download the repository to a local folder of your preference or clone the repository.
 * Either (a) create an anaconda virtual environment and run `pip3 install -r requirements.txt` or (b) build a Docker 
-image based on the provided `Dockerfile` and run a container while mounting the `lstm_for_centroid_prediction` folder (recommended).
+image based on the provided `Dockerfile` and run a container while mounting the `lstm_contour_prediction` folder (recommended).
 * Open `lstm_contour_prediction/code/config.py` and change `path_project` to your local path to the `lstm_contour_prediction` folder.
 
 ## Usage
@@ -24,5 +24,5 @@ to evaluate the no-predictor.
 * The weights of the best models, metrics histories, etc. will be saved under `lstm_contour_prediction/results`.
 
 ## Publication
-If you use this code in a scientific publication, please cite our paper:
-TBA
+If you use this code in a scientific publication, please cite our paper: 
+https://doi.org/10.1016/j.radonc.2023.109555
